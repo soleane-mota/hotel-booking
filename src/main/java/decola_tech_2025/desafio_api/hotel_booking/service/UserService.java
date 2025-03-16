@@ -42,12 +42,12 @@ public class UserService {
         .orElseThrow(UserNotFoundException::new);
   }
 
-  public User update(Long id) {
+  public User update(Long id, User newUser) {
     if (userRepository.existsById(id)) {
       throw new UserAlreadyExistsException();
     }
     User user = getById(id);
-    return userRepository.save(user);
+    return userRepository.save(newUser);
   }
 
   public String delete(Long id) {
