@@ -43,19 +43,29 @@ public class UserService {
   }
 
   public User update(Long id, User newUser) {
-    if (userRepository.existsById(id)) {
-      throw new UserAlreadyExistsException();
-    }
     User user = getById(id);
-    return userRepository.save(newUser);
+
+    if (newUser.getName() != null) {
+      user.setName(newUser.getName());
+    }
+    if (newUser.getEmail() != null) {
+      user.setEmail(newUser.getEmail());
+    }
+    if (newUser.getPassword() != null) {
+      user.setPassword(newUser.getPassword());
+    }
+    if (newUser.getRole() != null) {
+      user.setRole(newUser.getRole());
+    }
+
+    return userRepository.save(user);
   }
 
   public String delete(Long id) {
-    try {
+    if(!userRepository.existsById(id)) {
+      throw new UserNotFoundException();
+    }
       userRepository.deleteById(id);
       return "Usuário removido com sucesso";
-    } catch (UserNotFoundException e) {
-      return e.getMessage();
-    }
   }
 }
