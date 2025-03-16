@@ -135,6 +135,7 @@ public class UserServiceTest {
     assertNotNull(result);
     assertEquals(updatedUser.getName(), result.getName());
     assertEquals(updatedUser.getEmail(), result.getEmail());
+    assertEquals(updatedUser.getPassword(), result.getPassword());
     assertEquals(updatedUser.getRole(), result.getRole());
     verify(userRepository, times(1)).save(any());
   }
