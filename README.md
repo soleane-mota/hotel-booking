@@ -47,3 +47,8 @@ classDiagram
     Room "1" o-- "n" Reservation
     User --> Role
 ```
+## Endpoints
+
+Para testar os endpoint acesse a docupentação pelo Insomnia.
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Gerenciador%20de%20Tarefas&uri=https%3A%2F%2Fgithub.com%2Fsoleane-mota%2Fhotel-booking%2Fblob%2Ffeature%2Fcreate-auth%2FInsomnia_2025-09-07.har)
